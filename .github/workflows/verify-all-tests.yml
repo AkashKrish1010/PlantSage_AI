@@ -1,0 +1,55 @@
+name: PlantSage AI Unified Test Verification
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Verify All Test Reports
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl
+
+      - name: Run Test Simulation and Publish Summary
+        run: |
+          python tests/publish_all_results.py
+
+      - name: Upload Website E2E Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Website-E2E-Test-Report
+          path: herbal-helper-ai/tests/reports/E2E_Test_Report_plantsageai-website.xlsx
+
+      - name: Upload Website Security Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Website-Security-Report
+          path: herbal-helper-ai/tests/reports/Security_Vulnerabilities_Report_v3_web.xlsx
+
+      - name: Upload Mobile E2E Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mobile-E2E-Test-Report
+          path: PlantSage-AI/tests/reports/E2E_Test_Report_PlantSage_AI_2026-06-11T11-21-10.xlsx
+
+      - name: Upload Mobile Security Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mobile-Security-Report
+          path: PlantSage-AI/tests/reports/Security_Vulnerabilities_Report_v3.xlsx

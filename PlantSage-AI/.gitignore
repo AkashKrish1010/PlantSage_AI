@@ -1,0 +1,78 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env.local
+.env.*
+.env*.local
+ml/.env
+
+# sensitive credentials
+# google-services.json is intentionally tracked — EAS Build needs it.
+# It only contains Firebase app IDs, not secret keys.
+*.keystore
+
+# Editor, temp and backup files
+*.backup
+*.bak
+*.swp
+*~
+Thumbs.db
+
+# Python caches, virtual environments and Jupyter notebooks checkpoints
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+
+# ML models and large training output files
+*.h5
+*.keras
+*.tflite
+ml/output/
+
+# typescript
+*.tsbuildinfo
+
+app-example
+
+# ML module folder
+ml/
+
+# generated native folders
+/ios
+/android

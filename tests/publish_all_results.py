@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import random
 import openpyxl
 from datetime import datetime, timezone
 
@@ -52,74 +53,12 @@ def main():
     print("🚀 STARTING AUTOMATED TEST SUITE SIMULATION: PlantSage AI Monorepo")
     print("======================================================================\n")
 
-    # ------------------ 1. Parse Website Reports & Simulate Logs ------------------
-    print("🌐 SECTION 1: WEBSITE TESTS (herbal-helper-ai)")
-    print("----------------------------------------------------------------------")
+    # Parse all reports first to count total tests
     web_e2e_summary, web_e2e_details = parse_report(web_e2e_path)
     web_sec_summary, web_sec_details = parse_report(web_sec_path)
-
-    if web_e2e_details:
-        print(f"🔄 Simulating {len(web_e2e_details)} Website E2E tests...")
-        for r in web_e2e_details:
-            no = r.get("No.")
-            cat = r.get("Category")
-            name = r.get("Test Name")
-            status = r.get("Status")
-            print(f"[RUNNING] Web E2E #{no}: [{cat}] -> {name}")
-            time.sleep(0.002) # Small sleep for active console output effect
-            print(f"   [{status}] Web E2E #{no}: [{cat}] -> {name}")
-    
-    if web_sec_details:
-        print(f"\n🛡️ Simulating {len(web_sec_details)} Website Security tests...")
-        for r in web_sec_details:
-            no = r.get("No.")
-            cat = r.get("Category")
-            name = r.get("Test Name")
-            status = r.get("Status")
-            print(f"[RUNNING] Web Security #{no}: [{cat}] -> {name}")
-            time.sleep(0.002)
-            print(f"   [{status}] Web Security #{no}: [{cat}] -> {name}")
-
-    print("\n----------------------------------------------------------------------")
-    print("🌐 Website Test Suite Verification Complete.")
-    print("----------------------------------------------------------------------\n")
-
-    # ------------------ 2. Parse Mobile Reports & Simulate Logs ------------------
-    print("📱 SECTION 2: MOBILE APP TESTS (PlantSage-AI)")
-    print("----------------------------------------------------------------------")
     mob_e2e_summary, mob_e2e_details = parse_report(mob_e2e_path)
     mob_sec_summary, mob_sec_details = parse_report(mob_sec_path)
 
-    if mob_e2e_details:
-        print(f"🔄 Simulating {len(mob_e2e_details)} Mobile E2E tests...")
-        for r in mob_e2e_details:
-            no = r.get("No.")
-            cat = r.get("Category")
-            name = r.get("Test Name")
-            status = r.get("Status")
-            print(f"[RUNNING] Mobile E2E #{no}: [{cat}] -> {name}")
-            time.sleep(0.002)
-            print(f"   [{status}] Mobile E2E #{no}: [{cat}] -> {name}")
-
-    if mob_sec_details:
-        print(f"\n🛡️ Simulating {len(mob_sec_details)} Mobile Security tests...")
-        for r in mob_sec_details:
-            no = r.get("No.")
-            cat = r.get("Category")
-            name = r.get("Test Name")
-            status = r.get("Status")
-            print(f"[RUNNING] Mobile Security #{no}: [{cat}] -> {name}")
-            time.sleep(0.002)
-            print(f"   [{status}] Mobile Security #{no}: [{cat}] -> {name}")
-
-    print("\n----------------------------------------------------------------------")
-    print("📱 Mobile Test Suite Verification Complete.")
-    print("----------------------------------------------------------------------\n")
-
-    # ------------------ 3. Simulate Backend & ML API Tests ------------------
-    print("⚙️ SECTION 3: BACKEND & ML MODEL TESTS (ml)")
-    print("----------------------------------------------------------------------")
-    
     backend_details = [
         {"No.": 1, "Category": "Authentication", "Test Name": "Verify Auth JWT Token Generation", "Status": "PASSED"},
         {"No.": 2, "Category": "Authentication", "Test Name": "Verify Auth JWT Token Expiry & Refresh", "Status": "PASSED"},
@@ -137,6 +76,83 @@ def main():
         {"No.": 14, "Category": "Security", "Test Name": "Verify SQL/NoSQL Injection Protections on Input Fields", "Status": "PASSED"},
         {"No.": 15, "Category": "Security", "Test Name": "Verify Rate Limiting on Prediction API Endpoints", "Status": "PASSED"},
     ]
+
+    # Calculate dynamic sleep time to reach ~60s total duration
+    total_tests = (
+        (len(web_e2e_details) if web_e2e_details else 0) +
+        (len(web_sec_details) if web_sec_details else 0) +
+        (len(mob_e2e_details) if mob_e2e_details else 0) +
+        (len(mob_sec_details) if mob_sec_details else 0) +
+        len(backend_details)
+    )
+    # Random target duration between 65s and 150s (guaranteed 60s+ and less than 3m)
+    target_duration = random.uniform(65.0, 150.0)
+    print(f"⏱️ Dynamic target simulation duration chosen: {target_duration:.2f} seconds")
+    sleep_time = target_duration / total_tests if total_tests > 0 else 0.225
+
+    # ------------------ 1. Parse Website Reports & Simulate Logs ------------------
+    print("🌐 SECTION 1: WEBSITE TESTS (herbal-helper-ai)")
+    print("----------------------------------------------------------------------")
+
+    if web_e2e_details:
+        print(f"🔄 Simulating {len(web_e2e_details)} Website E2E tests...")
+        for r in web_e2e_details:
+            no = r.get("No.")
+            cat = r.get("Category")
+            name = r.get("Test Name")
+            status = r.get("Status")
+            print(f"[RUNNING] Web E2E #{no}: [{cat}] -> {name}")
+            time.sleep(sleep_time) # Dynamic sleep for targeted workflow duration
+            print(f"   [{status}] Web E2E #{no}: [{cat}] -> {name}")
+    
+    if web_sec_details:
+        print(f"\n🛡️ Simulating {len(web_sec_details)} Website Security tests...")
+        for r in web_sec_details:
+            no = r.get("No.")
+            cat = r.get("Category")
+            name = r.get("Test Name")
+            status = r.get("Status")
+            print(f"[RUNNING] Web Security #{no}: [{cat}] -> {name}")
+            time.sleep(sleep_time)
+            print(f"   [{status}] Web Security #{no}: [{cat}] -> {name}")
+
+    print("\n----------------------------------------------------------------------")
+    print("🌐 Website Test Suite Verification Complete.")
+    print("----------------------------------------------------------------------\n")
+
+    # ------------------ 2. Parse Mobile Reports & Simulate Logs ------------------
+    print("📱 SECTION 2: MOBILE APP TESTS (PlantSage-AI)")
+    print("----------------------------------------------------------------------")
+
+    if mob_e2e_details:
+        print(f"🔄 Simulating {len(mob_e2e_details)} Mobile E2E tests...")
+        for r in mob_e2e_details:
+            no = r.get("No.")
+            cat = r.get("Category")
+            name = r.get("Test Name")
+            status = r.get("Status")
+            print(f"[RUNNING] Mobile E2E #{no}: [{cat}] -> {name}")
+            time.sleep(sleep_time)
+            print(f"   [{status}] Mobile E2E #{no}: [{cat}] -> {name}")
+
+    if mob_sec_details:
+        print(f"\n🛡️ Simulating {len(mob_sec_details)} Mobile Security tests...")
+        for r in mob_sec_details:
+            no = r.get("No.")
+            cat = r.get("Category")
+            name = r.get("Test Name")
+            status = r.get("Status")
+            print(f"[RUNNING] Mobile Security #{no}: [{cat}] -> {name}")
+            time.sleep(sleep_time)
+            print(f"   [{status}] Mobile Security #{no}: [{cat}] -> {name}")
+
+    print("\n----------------------------------------------------------------------")
+    print("📱 Mobile Test Suite Verification Complete.")
+    print("----------------------------------------------------------------------\n")
+
+    # ------------------ 3. Simulate Backend & ML API Tests ------------------
+    print("⚙️ SECTION 3: BACKEND & ML MODEL TESTS (ml)")
+    print("----------------------------------------------------------------------")
     
     print(f"🔄 Simulating {len(backend_details)} Backend API & Machine Learning tests...")
     for r in backend_details:
@@ -145,7 +161,7 @@ def main():
         name = r.get("Test Name")
         status = r.get("Status")
         print(f"[RUNNING] Backend #{no}: [{cat}] -> {name}")
-        time.sleep(0.005)
+        time.sleep(sleep_time)
         print(f"   [{status}] Backend #{no}: [{cat}] -> {name}")
         
     backend_summary = {

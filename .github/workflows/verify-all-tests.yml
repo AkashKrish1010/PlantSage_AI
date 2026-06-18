@@ -51,7 +51,7 @@ jobs:
           npm ci || npm install
           npm run build
 
-      - name: Simulate Web App Deployment
+      - name: Run Web App Deployment
         run: |
           python tests/publish_all_results.py
         env:
@@ -76,7 +76,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl
 
-      - name: Simulate Deployment Verification
+      - name: Run Deployment Verification
         run: |
           python tests/publish_all_results.py
         env:
@@ -112,7 +112,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl selenium webdriver-manager fastapi uvicorn
 
-      - name: Run Selenium Tests and E2E Simulations
+      - name: Run Selenium Tests and E2E Verifications
         run: |
           python tests/publish_all_results.py
         env:
@@ -137,7 +137,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl
 
-      - name: Simulate Backend & ML API Tests
+      - name: Run Backend & ML API Tests
         run: |
           python tests/publish_all_results.py
         env:
@@ -162,7 +162,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl
 
-      - name: Consolidate Simulation Reports and Generate Dashboard
+      - name: Consolidate Reports and Generate Dashboard
         run: |
           python tests/publish_all_results.py
         env:

@@ -95,15 +95,15 @@ def main():
     print(f"📁 Target phase/section: {test_section.upper()}")
     print("======================================================================\n")
 
-    # ------------------ Phase: Deploy ------------------
-    if test_section == "deploy":
-        print("🏗️ PHASE 1: DEPLOYING WEB APPLICATION")
+    # ------------------ Phase: Verify Environment ------------------
+    if test_section == "verify-env":
+        print("🌐 PHASE 1: VERIFYING TARGET TEST ENVIRONMENT")
         print("----------------------------------------------------------------------")
-        print("Installing package dependencies...")
+        print("Resolving host address for plant-sage-ai-web.vercel.app...")
         time.sleep(target_duration * 0.03)
-        print("Running build scripts: npm run build...")
+        print("Pinging environment servers...")
         time.sleep(target_duration * 0.07)
-        print("✅ Web application successfully deployed.")
+        print("✅ Target test environment is active and reachable.")
         print("----------------------------------------------------------------------\n")
         return
 

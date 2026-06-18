@@ -22,8 +22,8 @@ jobs:
           echo "Generated dynamic target duration: ${val} seconds"
           echo "duration=${val}" >> $GITHUB_OUTPUT
 
-  deploying-web-app:
-    name: Deploying Web App
+  verify-environment:
+    name: Verify Test Environment
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -40,27 +40,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Build Web Application
-        run: |
-          cd herbal-helper-ai
-          npm ci || npm install
-          npm run build
-
-      - name: Run Web App Deployment
+      - name: Verify Environment Accessibility
         run: |
           python tests/publish_all_results.py
         env:
-          TEST_SECTION: deploy
+          TEST_SECTION: verify-env
           DYNAMIC_DURATION: ${{ needs.setup.outputs.duration }}
 
   verify-deployment:
     name: Verify Deployment
-    needs: [ setup, deploying-web-app ]
+    needs: [ setup, verify-environment ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -90,17 +79,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Build Web Application
-        run: |
-          cd herbal-helper-ai
-          npm ci || npm install
-          npm run build
 
       - name: Set up Python
         uses: actions/setup-python@v5

@@ -155,14 +155,15 @@ def main():
                 print(result.stdout)
                 if result.returncode != 0:
                     print(result.stderr)
-                    print("⚠️ Real Selenium tests failed/warned, continuing pipeline...")
+                    sys.exit(result.returncode)
                 else:
                     print("✅ Real Selenium tests completed successfully!")
             else:
-                print(f"⚠️ selenium_test.py not found at {selenium_script}")
+                print(f"❌ selenium_test.py not found at {selenium_script}")
+                sys.exit(1)
         except Exception as e:
-            print(f"⚠️ Skipping real Selenium run (Selenium packages or browser not initialized): {e}")
-            print("🔄 Running pipeline verification...")
+            print(f"❌ Selenium execution failed: {e}")
+            sys.exit(1)
 
         web_tests_count = (
             (len(web_e2e_details) if web_e2e_details else 0) +

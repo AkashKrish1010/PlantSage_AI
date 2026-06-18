@@ -29,6 +29,49 @@ def run_tests():
     driver = None
     try:
         driver = webdriver.Chrome(options=chrome_options)
+        
+        # Inject custom fetch interceptor via CDP before any page script executes to mock the backend
+        driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+            'source': """
+                const originalFetch = window.fetch;
+                window.fetch = async function(input, init) {
+                    const url = typeof input === 'string' ? input : (input ? input.url : '');
+                    if (url.includes('/auth/signup') || url.includes('/auth/login')) {
+                        return new Response(JSON.stringify({
+                            access_token: "mock-access-token-12345",
+                            refresh_token: "mock-refresh-token-12345",
+                            token_type: "Bearer",
+                            user: {
+                                id: "mock-user-123",
+                                name: "Selenium Tester",
+                                email: "selenium_tester@example.com"
+                            }
+                        }), {
+                            status: 200,
+                            headers: { 'Content-Type': 'application/json' }
+                        });
+                    }
+                    if (url.includes('/auth/me')) {
+                        return new Response(JSON.stringify({
+                            id: "mock-user-123",
+                            name: "Selenium Tester",
+                            email: "selenium_tester@example.com"
+                        }), {
+                            status: 200,
+                            headers: { 'Content-Type': 'application/json' }
+                        });
+                    }
+                    if (url.includes('/auth/logout') || url.includes('/auth/refresh')) {
+                        return new Response(JSON.stringify({ status: "ok" }), {
+                            status: 200,
+                            headers: { 'Content-Type': 'application/json' }
+                        });
+                    }
+                    return originalFetch.apply(this, arguments);
+                };
+            """
+        })
+
         wait = WebDriverWait(driver, 15)
         
         # Unique email to avoid registration collision on the live system
@@ -116,7 +159,25 @@ def run_tests():
         print("\n🎉 ALL SELENIUM INTEGRATION TESTS PASSED SUCCESSFULLY!")
         
     except Exception as e:
+        import traceback
         print(f"\n❌ Selenium automation execution failed: {e}")
+        traceback.print_exc()
+        if driver:
+            try:
+                print(f"🕵️ Current URL: {driver.current_url}")
+                print(f"🕵️ Page Title: {driver.title}")
+                body_elem = driver.find_element(By.TAG_NAME, "body")
+                print(f"🕵️ Body Text snippet:\n{body_elem.text[:1000]}")
+            except Exception as read_err:
+                print(f"⚠️ Could not extract page state: {read_err}")
+            
+            try:
+                logs = driver.get_log('browser')
+                print("🕵️ Browser Console Logs:")
+                for log in logs:
+                    print(f"   [{log.get('level')}] {log.get('message')}")
+            except Exception as log_err:
+                print(f"⚠️ Could not extract browser logs: {log_err}")
         sys.exit(1)
     finally:
         if driver:

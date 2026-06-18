@@ -96,6 +96,7 @@ jobs:
         env:
           TEST_SECTION: selenium
           DYNAMIC_DURATION: ${{ needs.setup.outputs.duration }}
+          VERCEL_URL: https://plant-sage-ai-web.vercel.app
 
   backend-tests-running:
     name: Backend Tests Running

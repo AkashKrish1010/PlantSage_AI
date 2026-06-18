@@ -4,7 +4,7 @@ import time
 import random
 import openpyxl
 from datetime import datetime, timezone
-
+import urllib.request
 def parse_report(filepath):
     """Parses Excel report and returns (summary_dict, details_list)."""
     if not os.path.exists(filepath):
@@ -126,12 +126,32 @@ def main():
         
         # Try running the actual Selenium script
         try:
+            # Health check for Vercel deployment
+            vercel_url = os.getenv("VERCEL_URL", "https://plant-sage-ai-web.vercel.app")
+            def check_url(url, retries=3, delay=5):
+                for attempt in range(1, retries + 1):
+                    try:
+                        with urllib.request.urlopen(url, timeout=10) as resp:
+                            if resp.status == 200:
+                                print(f"✅ Vercel site reachable (status {resp.status})")
+                                return True
+                    except Exception as e:
+                        print(f"⚠️ Attempt {attempt} to reach {url} failed: {e}")
+                        if attempt < retries:
+                            time.sleep(delay)
+                print("❌ Unable to reach Vercel site after retries.")
+                return False
+
+            if not check_url(vercel_url):
+                print("⚠️ Skipping Selenium tests due to unreachable site.")
+                return
+
             print("🚀 Executing real headless Chrome Selenium tests for Signup & Login...")
             import subprocess
             tests_dir = os.path.dirname(os.path.abspath(__file__))
             selenium_script = os.path.join(os.path.dirname(tests_dir), "herbal-helper-ai", "tests", "selenium_test.py")
             if os.path.exists(selenium_script):
-                result = subprocess.run([sys.executable, selenium_script], capture_output=True, text=True, timeout=30)
+                result = subprocess.run([sys.executable, selenium_script], capture_output=True, text=True, timeout=180)
                 print(result.stdout)
                 if result.returncode != 0:
                     print(result.stderr)

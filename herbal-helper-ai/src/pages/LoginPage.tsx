@@ -110,6 +110,7 @@ export default function LoginPage() {
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 text-cream-paper" />
                 <input
+                  id="login-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -137,6 +138,7 @@ export default function LoginPage() {
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 text-cream-paper" />
                 <input
+                  id="login-password"
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -164,6 +166,7 @@ export default function LoginPage() {
 
             {/* Submit */}
             <button
+              id="login-submit"
               type="submit"
               disabled={submitting}
               className="adaline-btn-primary w-full justify-center py-3 mt-2 font-bold"
@@ -189,6 +192,7 @@ export default function LoginPage() {
               New to PlantSage?
             </span>
             <Link
+              id="link-to-signup"
               to="/signup"
               className="adaline-body-sm font-bold underline hover:opacity-80 transition-opacity"
               style={{ color: "var(--color-moss-veil)" }}

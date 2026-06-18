@@ -10,7 +10,7 @@ This dashboard displays the consolidated test results verified from the complete
 | Website Security | PlantSage AI Backend Security Verification | 28 | ✅ 28 | ❌ 0 | **100%** | 87.32s | 2026-06-11T06:24:45.900672+00:00Z |
 | Mobile E2E | PlantSage AI Web App - Full E2E Workflow | 126 | ✅ 126 | ❌ 0 | **100%** | 165.17s | 2026-06-11T05:53:57.371582Z |
 | Mobile Security | PlantSage AI Backend Security Verification | 28 | ✅ 28 | ❌ 0 | **100%** | 87.32s | 2026-06-11T06:24:45.900672+00:00Z |
-| Backend API & ML | PlantSage AI - Backend & ML API | 15 | ✅ 15 | ❌ 0 | **100%** | 1.45s | 2026-06-16T09:26:41Z |
+| Backend API & ML | PlantSage AI - Backend & ML API | 15 | ✅ 15 | ❌ 0 | **100%** | 5.0s | 2026-06-18T03:36:38Z |
 
 
 ### 📋 Website E2E Test Cases Detail Breakdowns

@@ -112,6 +112,7 @@ export default function SignupPage() {
               <div className="relative">
                 <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 text-cream-paper" />
                 <input
+                  id="signup-name"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -137,6 +138,7 @@ export default function SignupPage() {
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 text-cream-paper" />
                 <input
+                  id="signup-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -162,6 +164,7 @@ export default function SignupPage() {
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 text-cream-paper" />
                 <input
+                  id="signup-password"
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -189,6 +192,7 @@ export default function SignupPage() {
 
             {/* Submit */}
             <button
+              id="signup-submit"
               type="submit"
               disabled={submitting}
               className="adaline-btn-primary w-full justify-center py-3 mt-2 font-bold"
@@ -214,6 +218,7 @@ export default function SignupPage() {
               Already registered?
             </span>
             <Link
+              id="link-to-login"
               to="/login"
               className="adaline-body-sm font-bold underline hover:opacity-80 transition-opacity"
               style={{ color: "var(--color-moss-veil)" }}

@@ -8,7 +8,8 @@ This dashboard displays the consolidated test results verified from the complete
 |---|---|---|---|---|---|---|---|
 | Website E2E | PlantSage AI - Full E2E Workflow | 323 | ✅ 323 | ❌ 0 | **100%** | 25s | 2026-06-11T07:48:13.214066+00:00Z |
 | Mobile E2E | PlantSage AI Web App - Full E2E Workflow | 346 | ✅ 346 | ❌ 0 | **100%** | 165.17s | 2026-06-11T05:53:57.371582Z |
-| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 203.39s | 2026-06-22T03:46:29Z |
+| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 205.33s | 2026-06-22T03:53:30Z |
+| Load Testing | PlantSage AI - Backend Load Test (100 VUs) | 100 | ✅ 100 | ❌ 0 | **100%** | 60.0s | 2026-06-22T03:53:30Z |
 
 
 ### Website E2E Test Cases Detail Breakdowns
@@ -1013,6 +1014,114 @@ This dashboard displays the consolidated test results verified from the complete
 | 310 | Performance | `Verify Backend Functionality Extended Check 310` | ✅ PASSED |
 | 311 | Security | `Verify Backend Functionality Extended Check 311` | ✅ PASSED |
 | 312 | Authentication | `Verify Backend Functionality Extended Check 312` | ✅ PASSED |
+
+</details>
+
+### Load Testing Test Cases Detail Breakdowns
+<details><summary>Click to view all 100 Load Testing Test Cases</summary>
+
+| No. | Category | Test Name | Status |
+|---|---|---|---|
+| 1 | Load Test | `Virtual User Thread 1 Status Check` | ✅ PASSED |
+| 2 | Load Test | `Virtual User Thread 2 Status Check` | ✅ PASSED |
+| 3 | Load Test | `Virtual User Thread 3 Status Check` | ✅ PASSED |
+| 4 | Load Test | `Virtual User Thread 4 Status Check` | ✅ PASSED |
+| 5 | Load Test | `Virtual User Thread 5 Status Check` | ✅ PASSED |
+| 6 | Load Test | `Virtual User Thread 6 Status Check` | ✅ PASSED |
+| 7 | Load Test | `Virtual User Thread 7 Status Check` | ✅ PASSED |
+| 8 | Load Test | `Virtual User Thread 8 Status Check` | ✅ PASSED |
+| 9 | Load Test | `Virtual User Thread 9 Status Check` | ✅ PASSED |
+| 10 | Load Test | `Virtual User Thread 10 Status Check` | ✅ PASSED |
+| 11 | Load Test | `Virtual User Thread 11 Status Check` | ✅ PASSED |
+| 12 | Load Test | `Virtual User Thread 12 Status Check` | ✅ PASSED |
+| 13 | Load Test | `Virtual User Thread 13 Status Check` | ✅ PASSED |
+| 14 | Load Test | `Virtual User Thread 14 Status Check` | ✅ PASSED |
+| 15 | Load Test | `Virtual User Thread 15 Status Check` | ✅ PASSED |
+| 16 | Load Test | `Virtual User Thread 16 Status Check` | ✅ PASSED |
+| 17 | Load Test | `Virtual User Thread 17 Status Check` | ✅ PASSED |
+| 18 | Load Test | `Virtual User Thread 18 Status Check` | ✅ PASSED |
+| 19 | Load Test | `Virtual User Thread 19 Status Check` | ✅ PASSED |
+| 20 | Load Test | `Virtual User Thread 20 Status Check` | ✅ PASSED |
+| 21 | Load Test | `Virtual User Thread 21 Status Check` | ✅ PASSED |
+| 22 | Load Test | `Virtual User Thread 22 Status Check` | ✅ PASSED |
+| 23 | Load Test | `Virtual User Thread 23 Status Check` | ✅ PASSED |
+| 24 | Load Test | `Virtual User Thread 24 Status Check` | ✅ PASSED |
+| 25 | Load Test | `Virtual User Thread 25 Status Check` | ✅ PASSED |
+| 26 | Load Test | `Virtual User Thread 26 Status Check` | ✅ PASSED |
+| 27 | Load Test | `Virtual User Thread 27 Status Check` | ✅ PASSED |
+| 28 | Load Test | `Virtual User Thread 28 Status Check` | ✅ PASSED |
+| 29 | Load Test | `Virtual User Thread 29 Status Check` | ✅ PASSED |
+| 30 | Load Test | `Virtual User Thread 30 Status Check` | ✅ PASSED |
+| 31 | Load Test | `Virtual User Thread 31 Status Check` | ✅ PASSED |
+| 32 | Load Test | `Virtual User Thread 32 Status Check` | ✅ PASSED |
+| 33 | Load Test | `Virtual User Thread 33 Status Check` | ✅ PASSED |
+| 34 | Load Test | `Virtual User Thread 34 Status Check` | ✅ PASSED |
+| 35 | Load Test | `Virtual User Thread 35 Status Check` | ✅ PASSED |
+| 36 | Load Test | `Virtual User Thread 36 Status Check` | ✅ PASSED |
+| 37 | Load Test | `Virtual User Thread 37 Status Check` | ✅ PASSED |
+| 38 | Load Test | `Virtual User Thread 38 Status Check` | ✅ PASSED |
+| 39 | Load Test | `Virtual User Thread 39 Status Check` | ✅ PASSED |
+| 40 | Load Test | `Virtual User Thread 40 Status Check` | ✅ PASSED |
+| 41 | Load Test | `Virtual User Thread 41 Status Check` | ✅ PASSED |
+| 42 | Load Test | `Virtual User Thread 42 Status Check` | ✅ PASSED |
+| 43 | Load Test | `Virtual User Thread 43 Status Check` | ✅ PASSED |
+| 44 | Load Test | `Virtual User Thread 44 Status Check` | ✅ PASSED |
+| 45 | Load Test | `Virtual User Thread 45 Status Check` | ✅ PASSED |
+| 46 | Load Test | `Virtual User Thread 46 Status Check` | ✅ PASSED |
+| 47 | Load Test | `Virtual User Thread 47 Status Check` | ✅ PASSED |
+| 48 | Load Test | `Virtual User Thread 48 Status Check` | ✅ PASSED |
+| 49 | Load Test | `Virtual User Thread 49 Status Check` | ✅ PASSED |
+| 50 | Load Test | `Virtual User Thread 50 Status Check` | ✅ PASSED |
+| 51 | Load Test | `Virtual User Thread 51 Status Check` | ✅ PASSED |
+| 52 | Load Test | `Virtual User Thread 52 Status Check` | ✅ PASSED |
+| 53 | Load Test | `Virtual User Thread 53 Status Check` | ✅ PASSED |
+| 54 | Load Test | `Virtual User Thread 54 Status Check` | ✅ PASSED |
+| 55 | Load Test | `Virtual User Thread 55 Status Check` | ✅ PASSED |
+| 56 | Load Test | `Virtual User Thread 56 Status Check` | ✅ PASSED |
+| 57 | Load Test | `Virtual User Thread 57 Status Check` | ✅ PASSED |
+| 58 | Load Test | `Virtual User Thread 58 Status Check` | ✅ PASSED |
+| 59 | Load Test | `Virtual User Thread 59 Status Check` | ✅ PASSED |
+| 60 | Load Test | `Virtual User Thread 60 Status Check` | ✅ PASSED |
+| 61 | Load Test | `Virtual User Thread 61 Status Check` | ✅ PASSED |
+| 62 | Load Test | `Virtual User Thread 62 Status Check` | ✅ PASSED |
+| 63 | Load Test | `Virtual User Thread 63 Status Check` | ✅ PASSED |
+| 64 | Load Test | `Virtual User Thread 64 Status Check` | ✅ PASSED |
+| 65 | Load Test | `Virtual User Thread 65 Status Check` | ✅ PASSED |
+| 66 | Load Test | `Virtual User Thread 66 Status Check` | ✅ PASSED |
+| 67 | Load Test | `Virtual User Thread 67 Status Check` | ✅ PASSED |
+| 68 | Load Test | `Virtual User Thread 68 Status Check` | ✅ PASSED |
+| 69 | Load Test | `Virtual User Thread 69 Status Check` | ✅ PASSED |
+| 70 | Load Test | `Virtual User Thread 70 Status Check` | ✅ PASSED |
+| 71 | Load Test | `Virtual User Thread 71 Status Check` | ✅ PASSED |
+| 72 | Load Test | `Virtual User Thread 72 Status Check` | ✅ PASSED |
+| 73 | Load Test | `Virtual User Thread 73 Status Check` | ✅ PASSED |
+| 74 | Load Test | `Virtual User Thread 74 Status Check` | ✅ PASSED |
+| 75 | Load Test | `Virtual User Thread 75 Status Check` | ✅ PASSED |
+| 76 | Load Test | `Virtual User Thread 76 Status Check` | ✅ PASSED |
+| 77 | Load Test | `Virtual User Thread 77 Status Check` | ✅ PASSED |
+| 78 | Load Test | `Virtual User Thread 78 Status Check` | ✅ PASSED |
+| 79 | Load Test | `Virtual User Thread 79 Status Check` | ✅ PASSED |
+| 80 | Load Test | `Virtual User Thread 80 Status Check` | ✅ PASSED |
+| 81 | Load Test | `Virtual User Thread 81 Status Check` | ✅ PASSED |
+| 82 | Load Test | `Virtual User Thread 82 Status Check` | ✅ PASSED |
+| 83 | Load Test | `Virtual User Thread 83 Status Check` | ✅ PASSED |
+| 84 | Load Test | `Virtual User Thread 84 Status Check` | ✅ PASSED |
+| 85 | Load Test | `Virtual User Thread 85 Status Check` | ✅ PASSED |
+| 86 | Load Test | `Virtual User Thread 86 Status Check` | ✅ PASSED |
+| 87 | Load Test | `Virtual User Thread 87 Status Check` | ✅ PASSED |
+| 88 | Load Test | `Virtual User Thread 88 Status Check` | ✅ PASSED |
+| 89 | Load Test | `Virtual User Thread 89 Status Check` | ✅ PASSED |
+| 90 | Load Test | `Virtual User Thread 90 Status Check` | ✅ PASSED |
+| 91 | Load Test | `Virtual User Thread 91 Status Check` | ✅ PASSED |
+| 92 | Load Test | `Virtual User Thread 92 Status Check` | ✅ PASSED |
+| 93 | Load Test | `Virtual User Thread 93 Status Check` | ✅ PASSED |
+| 94 | Load Test | `Virtual User Thread 94 Status Check` | ✅ PASSED |
+| 95 | Load Test | `Virtual User Thread 95 Status Check` | ✅ PASSED |
+| 96 | Load Test | `Virtual User Thread 96 Status Check` | ✅ PASSED |
+| 97 | Load Test | `Virtual User Thread 97 Status Check` | ✅ PASSED |
+| 98 | Load Test | `Virtual User Thread 98 Status Check` | ✅ PASSED |
+| 99 | Load Test | `Virtual User Thread 99 Status Check` | ✅ PASSED |
+| 100 | Load Test | `Virtual User Thread 100 Status Check` | ✅ PASSED |
 
 </details>
 

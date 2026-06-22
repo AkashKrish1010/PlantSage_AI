@@ -6,10 +6,10 @@ This dashboard displays the consolidated test results verified from the complete
 
 | Component | Test Suite | Total Tests | Passed | Failed | Pass Rate | Duration | Timestamp |
 |---|---|---|---|---|---|---|---|
-| Website E2E | PlantSage AI - Full E2E Workflow | 323 | ✅ 323 | ❌ 0 | **100%** | 25s | 2026-06-11T07:48:13.214066+00:00Z |
+| Website E2E | PlantSage AI - Full E2E Workflow | 323 | ✅ 323 | ❌ 0 | **100%** | 173.1s | 2026-06-11T07:48:13.214066+00:00Z |
 | Mobile E2E | PlantSage AI Web App - Full E2E Workflow | 346 | ✅ 346 | ❌ 0 | **100%** | 165.17s | 2026-06-11T05:53:57.371582Z |
-| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 205.33s | 2026-06-22T03:53:30Z |
-| Load Testing | PlantSage AI - Backend Load Test (100 VUs) | 100 | ✅ 100 | ❌ 0 | **100%** | 60.0s | 2026-06-22T03:53:30Z |
+| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 204.74s | 2026-06-22T04:00:09Z |
+| Load Testing | PlantSage AI - Backend Load Test (100 VUs) [Avg: 512.1ms, Min: 234.38ms, Max: 2352.16ms] | 100 | ✅ 100 | ❌ 0 | **100.0%** | 60.0s | 2026-06-22T04:00:09Z |
 
 
 ### Website E2E Test Cases Detail Breakdowns

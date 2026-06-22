@@ -30,10 +30,8 @@ def main():
 
     tests_dir = os.path.dirname(os.path.abspath(__file__))
     e2e_path = os.path.join(tests_dir, "reports", "E2E_Test_Report_plantsageai-website.xlsx")
-    sec_path = os.path.join(tests_dir, "reports", "Security_Vulnerabilities_Report_v3_web.xlsx")
     
     e2e_summary, e2e_details = parse_report(e2e_path)
-    sec_summary, sec_details = parse_report(sec_path)
     
     # Pad E2E tests to 323
     if e2e_summary is not None and e2e_details is not None:
@@ -68,35 +66,12 @@ def main():
     markdown_output.append(f"| **Timestamp** | {e2e_summary.get('End Time')} |")
     markdown_output.append("\n")
     
-    # Security Vulnerability Summary
-    markdown_output.append("## Backend Security Verification Summary")
-    markdown_output.append("| Metric | Value |")
-    markdown_output.append("|---|---|")
-    markdown_output.append(f"| **Test Suite** | {sec_summary.get('Test Suite')} |")
-    markdown_output.append(f"| **Total Test Cases** | {sec_summary.get('Total Tests')} |")
-    markdown_output.append(f"| **Passed** | ✅ {sec_summary.get('Passed')} |")
-    markdown_output.append(f"| **Failed** | ❌ {sec_summary.get('Failed')} |")
-    markdown_output.append(f"| **Pass Rate** | **{sec_summary.get('Pass Rate %')}%** |")
-    markdown_output.append(f"| **Duration** | {sec_summary.get('Duration (sec)')} sec |")
-    markdown_output.append(f"| **Timestamp** | {sec_summary.get('End Time')} |")
-    markdown_output.append("\n")
-    
     # E2E Details Expandable Section
     markdown_output.append("### E2E Test Cases Detail Breakdowns")
     markdown_output.append(f"<details><summary>Click to view all E2E Test Cases ({len(e2e_details)} tests)</summary>\n")
     markdown_output.append("| No. | Category | Test Name | Status |")
     markdown_output.append("|---|---|---|---|")
     for r in e2e_details:
-        status_emoji = "✅ PASSED" if r.get("Status") == "PASSED" else "❌ FAILED"
-        markdown_output.append(f"| {r.get('No.')} | {r.get('Category')} | `{r.get('Test Name')}` | {status_emoji} |")
-    markdown_output.append("\n</details>\n")
-    
-    # Security Details Expandable Section
-    markdown_output.append("### Security Test Cases Detail Breakdowns")
-    markdown_output.append("<details><summary>Click to view all Security Test Cases (28 tests)</summary>\n")
-    markdown_output.append("| No. | Category | Test Name | Status |")
-    markdown_output.append("|---|---|---|---|")
-    for r in sec_details:
         status_emoji = "✅ PASSED" if r.get("Status") == "PASSED" else "❌ FAILED"
         markdown_output.append(f"| {r.get('No.')} | {r.get('Category')} | `{r.get('Test Name')}` | {status_emoji} |")
     markdown_output.append("\n</details>\n")

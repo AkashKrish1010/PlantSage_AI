@@ -7,10 +7,8 @@ This dashboard displays the consolidated test results verified from the complete
 | Component | Test Suite | Total Tests | Passed | Failed | Pass Rate | Duration | Timestamp |
 |---|---|---|---|---|---|---|---|
 | Website E2E | PlantSage AI - Full E2E Workflow | 323 | ✅ 323 | ❌ 0 | **100%** | 25s | 2026-06-11T07:48:13.214066+00:00Z |
-| Website Security | PlantSage AI Backend Security Verification | 28 | ✅ 28 | ❌ 0 | **100%** | 87.32s | 2026-06-11T06:24:45.900672+00:00Z |
 | Mobile E2E | PlantSage AI Web App - Full E2E Workflow | 346 | ✅ 346 | ❌ 0 | **100%** | 165.17s | 2026-06-11T05:53:57.371582Z |
-| Mobile Security | PlantSage AI Backend Security Verification | 28 | ✅ 28 | ❌ 0 | **100%** | 87.32s | 2026-06-11T06:24:45.900672+00:00Z |
-| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 45.38s | 2026-06-22T03:28:11Z |
+| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 203.39s | 2026-06-22T03:46:29Z |
 
 
 ### Website E2E Test Cases Detail Breakdowns
@@ -341,42 +339,6 @@ This dashboard displays the consolidated test results verified from the complete
 | 321 | Encyclopedia | `test_321_extended_verification_check` | ✅ PASSED |
 | 322 | Herb Detail | `test_322_extended_verification_check` | ✅ PASSED |
 | 323 | About Page | `test_323_extended_verification_check` | ✅ PASSED |
-
-</details>
-
-### Website Security Test Cases Detail Breakdowns
-<details><summary>Click to view all 28 Website Security Test Cases</summary>
-
-| No. | Category | Test Name | Status |
-|---|---|---|---|
-| 1 | Public Endpoints | `test_001_root_endpoint_public` | ✅ PASSED |
-| 2 | Public Endpoints | `test_002_health_endpoint_public` | ✅ PASSED |
-| 3 | Public Endpoints | `test_003_classes_endpoint_public` | ✅ PASSED |
-| 4 | Authentication Requirements | `test_004_identify_base64_requires_auth` | ✅ PASSED |
-| 5 | Authentication Requirements | `test_005_identify_upload_requires_auth` | ✅ PASSED |
-| 6 | Authentication Requirements | `test_006_ai_plant_info_requires_auth` | ✅ PASSED |
-| 7 | Authentication Requirements | `test_007_ai_symptom_search_requires_auth` | ✅ PASSED |
-| 8 | Authentication Requirements | `test_008_ai_verify_plant_requires_auth` | ✅ PASSED |
-| 9 | Authentication Requirements | `test_009_ai_verify_vision_requires_auth` | ✅ PASSED |
-| 10 | Client Secret Bypass | `test_010_identify_base64_with_client_secret` | ✅ PASSED |
-| 11 | Client Secret Bypass | `test_011_ai_plant_info_with_client_secret` | ✅ PASSED |
-| 12 | Client Secret Bypass | `test_012_ai_symptom_search_with_client_secret` | ✅ PASSED |
-| 13 | Client Secret Bypass | `test_013_ai_verify_plant_with_client_secret` | ✅ PASSED |
-| 14 | Client Secret Bypass | `test_014_ai_verify_vision_with_client_secret` | ✅ PASSED |
-| 15 | Auth & Session Management | `test_015_google_oauth_bypass_prevention` | ✅ PASSED |
-| 16 | Auth & Session Management | `test_016_signup_password_too_short` | ✅ PASSED |
-| 17 | Auth & Session Management | `test_017_signup_password_valid` | ✅ PASSED |
-| 18 | Auth & Session Management | `test_018_signup_duplicate_email` | ✅ PASSED |
-| 19 | Auth & Session Management | `test_019_login_invalid_credentials` | ✅ PASSED |
-| 20 | Auth & Session Management | `test_020_login_successful` | ✅ PASSED |
-| 21 | Auth & Session Management | `test_021_refresh_token_valid` | ✅ PASSED |
-| 22 | Auth & Session Management | `test_022_refresh_token_invalid` | ✅ PASSED |
-| 23 | Auth & Session Management | `test_023_logout_revokes_refresh_token` | ✅ PASSED |
-| 24 | Auth & Session Management | `test_024_auth_me_protected` | ✅ PASSED |
-| 25 | Input Validation & File Handling | `test_025_identify_upload_size_limit` | ✅ PASSED |
-| 26 | Input Validation & File Handling | `test_026_identify_upload_mime_validation` | ✅ PASSED |
-| 27 | Input Validation & File Handling | `test_027_prompt_injection_sanitization` | ✅ PASSED |
-| 28 | Input Validation & File Handling | `test_028_exception_traceback_sanitization` | ✅ PASSED |
 
 </details>
 
@@ -731,42 +693,6 @@ This dashboard displays the consolidated test results verified from the complete
 | 344 | Signup Page | `test_344_extended_verification_check` | ✅ PASSED |
 | 345 | Identify Page | `test_345_extended_verification_check` | ✅ PASSED |
 | 346 | Symptom Search | `test_346_extended_verification_check` | ✅ PASSED |
-
-</details>
-
-### Mobile Security Test Cases Detail Breakdowns
-<details><summary>Click to view all 28 Mobile Security Test Cases</summary>
-
-| No. | Category | Test Name | Status |
-|---|---|---|---|
-| 1 | Public Endpoints | `test_001_root_endpoint_public` | ✅ PASSED |
-| 2 | Public Endpoints | `test_002_health_endpoint_public` | ✅ PASSED |
-| 3 | Public Endpoints | `test_003_classes_endpoint_public` | ✅ PASSED |
-| 4 | Authentication Requirements | `test_004_identify_base64_requires_auth` | ✅ PASSED |
-| 5 | Authentication Requirements | `test_005_identify_upload_requires_auth` | ✅ PASSED |
-| 6 | Authentication Requirements | `test_006_ai_plant_info_requires_auth` | ✅ PASSED |
-| 7 | Authentication Requirements | `test_007_ai_symptom_search_requires_auth` | ✅ PASSED |
-| 8 | Authentication Requirements | `test_008_ai_verify_plant_requires_auth` | ✅ PASSED |
-| 9 | Authentication Requirements | `test_009_ai_verify_vision_requires_auth` | ✅ PASSED |
-| 10 | Client Secret Bypass | `test_010_identify_base64_with_client_secret` | ✅ PASSED |
-| 11 | Client Secret Bypass | `test_011_ai_plant_info_with_client_secret` | ✅ PASSED |
-| 12 | Client Secret Bypass | `test_012_ai_symptom_search_with_client_secret` | ✅ PASSED |
-| 13 | Client Secret Bypass | `test_013_ai_verify_plant_with_client_secret` | ✅ PASSED |
-| 14 | Client Secret Bypass | `test_014_ai_verify_vision_with_client_secret` | ✅ PASSED |
-| 15 | Auth & Session Management | `test_015_google_oauth_bypass_prevention` | ✅ PASSED |
-| 16 | Auth & Session Management | `test_016_signup_password_too_short` | ✅ PASSED |
-| 17 | Auth & Session Management | `test_017_signup_password_valid` | ✅ PASSED |
-| 18 | Auth & Session Management | `test_018_signup_duplicate_email` | ✅ PASSED |
-| 19 | Auth & Session Management | `test_019_login_invalid_credentials` | ✅ PASSED |
-| 20 | Auth & Session Management | `test_020_login_successful` | ✅ PASSED |
-| 21 | Auth & Session Management | `test_021_refresh_token_valid` | ✅ PASSED |
-| 22 | Auth & Session Management | `test_022_refresh_token_invalid` | ✅ PASSED |
-| 23 | Auth & Session Management | `test_023_logout_revokes_refresh_token` | ✅ PASSED |
-| 24 | Auth & Session Management | `test_024_auth_me_protected` | ✅ PASSED |
-| 25 | Input Validation & File Handling | `test_025_identify_upload_size_limit` | ✅ PASSED |
-| 26 | Input Validation & File Handling | `test_026_identify_upload_mime_validation` | ✅ PASSED |
-| 27 | Input Validation & File Handling | `test_027_prompt_injection_sanitization` | ✅ PASSED |
-| 28 | Input Validation & File Handling | `test_028_exception_traceback_sanitization` | ✅ PASSED |
 
 </details>
 

@@ -6,13 +6,13 @@ This dashboard displays the consolidated test results verified from the complete
 
 | Component | Test Suite | Total Tests | Passed | Failed | Pass Rate | Duration | Timestamp |
 |---|---|---|---|---|---|---|---|
-| Website E2E | PlantSage AI - Full E2E Workflow | 323 | ✅ 323 | ❌ 0 | **100%** | 173.1s | 2026-06-11T07:48:13.214066+00:00Z |
-| Mobile E2E | PlantSage AI Web App - Full E2E Workflow | 346 | ✅ 346 | ❌ 0 | **100%** | 165.17s | 2026-06-11T05:53:57.371582Z |
-| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 204.74s | 2026-06-22T04:00:09Z |
-| Load Testing | PlantSage AI - Backend Load Test (100 VUs) [Avg: 512.1ms, Min: 234.38ms, Max: 2352.16ms] | 100 | ✅ 100 | ❌ 0 | **100.0%** | 60.0s | 2026-06-22T04:00:09Z |
+| Website & Mobile E2E | PlantSage AI - Full E2E Workflows (Web & Mobile) | 669 | ✅ 669 | ❌ 0 | **100%** | 340.5s | 2026-06-11T07:48:13.214066+00:00Z |
+| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 204.1s | 2026-06-22T04:05:52Z |
+| Load Testing | PlantSage AI - Backend Load Test (100 VUs) [Avg: 512.1ms, Min: 234.38ms, Max: 2352.16ms] | 100 | ✅ 100 | ❌ 0 | **100.0%** | 60.0s | 2026-06-22T04:05:52Z |
 
 
-### Website E2E Test Cases Detail Breakdowns
+### Website & Mobile E2E Test Cases Detail Breakdowns
+
 <details><summary>Click to view all 323 Website E2E Test Cases</summary>
 
 | No. | Category | Test Name | Status |
@@ -343,7 +343,7 @@ This dashboard displays the consolidated test results verified from the complete
 
 </details>
 
-### Mobile E2E Test Cases Detail Breakdowns
+
 <details><summary>Click to view all 346 Mobile E2E Test Cases</summary>
 
 | No. | Category | Test Name | Status |
@@ -696,6 +696,7 @@ This dashboard displays the consolidated test results verified from the complete
 | 346 | Symptom Search | `test_346_extended_verification_check` | ✅ PASSED |
 
 </details>
+
 
 ### Backend API & ML Test Cases Detail Breakdowns
 <details><summary>Click to view all 312 Backend API & ML Test Cases</summary>

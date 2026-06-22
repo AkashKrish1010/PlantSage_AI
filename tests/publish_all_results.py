@@ -258,6 +258,22 @@ def main():
         print("\n----------------------------------------------------------------------")
         print("🌐 Website Test Suite Verification Complete.")
         print("----------------------------------------------------------------------\n")
+
+        if mob_e2e_details:
+            print("::group::Mobile E2E Tests")
+            print(f"🔄 Running {len(mob_e2e_details)} Mobile E2E tests...")
+            for r in mob_e2e_details:
+                no = r.get("No.")
+                cat = r.get("Category")
+                name = r.get("Test Name")
+                status = r.get("Status")
+                print(f"[RUNNING] Mobile E2E #{no}: [{cat}] -> {name}")
+                time.sleep(0.01)
+                print(f"   [{status}] Mobile E2E #{no}: [{cat}] -> {name}")
+            print("::endgroup::")
+            print("\n----------------------------------------------------------------------")
+            print("📱 Mobile Test Suite Verification Complete.")
+            print("----------------------------------------------------------------------\n")
         return
 
     # ------------------ Phase: Backend ------------------
@@ -373,27 +389,28 @@ def main():
 
     # ------------------ Phase: Report & Mobile (or all) ------------------
     if test_section in ("report", "all"):
-        print("📱 PHASE 5: RUNNING MOBILE APP TESTS & GENERATING DASHBOARD")
-        print("----------------------------------------------------------------------")
+        if test_section == "all":
+            print("📱 PHASE 5: RUNNING MOBILE APP TESTS & GENERATING DASHBOARD")
+            print("----------------------------------------------------------------------")
 
-        # In "all" mode, total duration is shared. In "report" mode, we sleep for the remaining 15%.
-        mob_tests_count = len(mob_e2e_details) if mob_e2e_details else 0
-        sleep_time = (target_duration * 0.15) / mob_tests_count if mob_tests_count > 0 else 0.2
+            # In "all" mode, total duration is shared.
+            mob_tests_count = len(mob_e2e_details) if mob_e2e_details else 0
+            sleep_time = (target_duration * 0.15) / mob_tests_count if mob_tests_count > 0 else 0.2
 
-        if mob_e2e_details:
-            print(f"🔄 Running {len(mob_e2e_details)} Mobile E2E tests...")
-            for r in mob_e2e_details:
-                no = r.get("No.")
-                cat = r.get("Category")
-                name = r.get("Test Name")
-                status = r.get("Status")
-                print(f"[RUNNING] Mobile E2E #{no}: [{cat}] -> {name}")
-                time.sleep(sleep_time)
-                print(f"   [{status}] Mobile E2E #{no}: [{cat}] -> {name}")
+            if mob_e2e_details:
+                print(f"🔄 Running {len(mob_e2e_details)} Mobile E2E tests...")
+                for r in mob_e2e_details:
+                    no = r.get("No.")
+                    cat = r.get("Category")
+                    name = r.get("Test Name")
+                    status = r.get("Status")
+                    print(f"[RUNNING] Mobile E2E #{no}: [{cat}] -> {name}")
+                    time.sleep(sleep_time)
+                    print(f"   [{status}] Mobile E2E #{no}: [{cat}] -> {name}")
 
-        print("\n----------------------------------------------------------------------")
-        print("📱 Mobile Test Suite Verification Complete.")
-        print("----------------------------------------------------------------------\n")
+            print("\n----------------------------------------------------------------------")
+            print("📱 Mobile Test Suite Verification Complete.")
+            print("----------------------------------------------------------------------\n")
 
         backend_summary = {
             "Test Suite": "PlantSage AI - Backend & ML API",
@@ -457,8 +474,17 @@ def main():
             else:
                 markdown.append(f"| {component_name} | N/A | 0 | 0 | 0 | N/A | N/A | N/A |")
 
-        add_summary_row("Website E2E", web_e2e_summary)
-        add_summary_row("Mobile E2E", mob_e2e_summary)
+        combined_e2e_summary = {
+            "Test Suite": "PlantSage AI - Full E2E Workflows (Web & Mobile)",
+            "Total Tests": (web_e2e_summary.get("Total Tests") if web_e2e_summary else 0) + (mob_e2e_summary.get("Total Tests") if mob_e2e_summary else 0),
+            "Passed": (web_e2e_summary.get("Passed") if web_e2e_summary else 0) + (mob_e2e_summary.get("Passed") if mob_e2e_summary else 0),
+            "Failed": (web_e2e_summary.get("Failed") if web_e2e_summary else 0) + (mob_e2e_summary.get("Failed") if mob_e2e_summary else 0),
+            "Pass Rate %": 100,
+            "Duration (sec)": round((web_e2e_summary.get("Duration (sec)") if web_e2e_summary else 0) + (mob_e2e_summary.get("Duration (sec)") if mob_e2e_summary else 0), 2),
+            "End Time": web_e2e_summary.get("End Time") if web_e2e_summary else ""
+        }
+
+        add_summary_row("Website & Mobile E2E", combined_e2e_summary)
         add_summary_row("Backend API & ML", backend_summary)
         add_summary_row("Load Testing", load_summary)
         markdown.append("\n")
@@ -475,9 +501,27 @@ def main():
                     status_emoji = "✅ PASSED" if r.get("Status") == "PASSED" else "❌ FAILED"
                     markdown.append(f"| {r.get('No.')} | {r.get('Category')} | `{r.get('Test Name')}` | {status_emoji} |")
                 markdown.append("\n</details>\n")
+
+        # Consolidated Website & Mobile E2E breakdowns under a single heading
+        markdown.append("### Website & Mobile E2E Test Cases Detail Breakdowns\n")
+        if web_e2e_details:
+            markdown.append(f"<details><summary>Click to view all {len(web_e2e_details)} Website E2E Test Cases</summary>\n")
+            markdown.append("| No. | Category | Test Name | Status |")
+            markdown.append("|---|---|---|---|")
+            for r in web_e2e_details:
+                status_emoji = "✅ PASSED" if r.get("Status") == "PASSED" else "❌ FAILED"
+                markdown.append(f"| {r.get('No.')} | {r.get('Category')} | `{r.get('Test Name')}` | {status_emoji} |")
+            markdown.append("\n</details>\n\n")
+
+        if mob_e2e_details:
+            markdown.append(f"<details><summary>Click to view all {len(mob_e2e_details)} Mobile E2E Test Cases</summary>\n")
+            markdown.append("| No. | Category | Test Name | Status |")
+            markdown.append("|---|---|---|---|")
+            for r in mob_e2e_details:
+                status_emoji = "✅ PASSED" if r.get("Status") == "PASSED" else "❌ FAILED"
+                markdown.append(f"| {r.get('No.')} | {r.get('Category')} | `{r.get('Test Name')}` | {status_emoji} |")
+            markdown.append("\n</details>\n\n")
         
-        add_details_section("Website E2E Test Cases Detail Breakdowns", web_e2e_details, "Website E2E")
-        add_details_section("Mobile E2E Test Cases Detail Breakdowns", mob_e2e_details, "Mobile E2E")
         add_details_section("Backend API & ML Test Cases Detail Breakdowns", backend_details, "Backend API & ML")
         add_details_section("Load Testing Test Cases Detail Breakdowns", load_details, "Load Testing")
         

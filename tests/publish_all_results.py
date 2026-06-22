@@ -260,6 +260,12 @@ def main():
         print("----------------------------------------------------------------------\n")
 
         if mob_e2e_details:
+            mob_tests_count = len(mob_e2e_details)
+            mob_e2e_target_duration = mob_e2e_summary.get("Duration (sec)") if mob_e2e_summary else 168.0
+            if not mob_e2e_target_duration:
+                mob_e2e_target_duration = 168.0
+            sleep_time_mob = mob_e2e_target_duration / mob_tests_count if mob_tests_count > 0 else 0.4
+
             print("::group::Mobile E2E Tests")
             print(f"🔄 Running {len(mob_e2e_details)} Mobile E2E tests...")
             for r in mob_e2e_details:
@@ -268,7 +274,7 @@ def main():
                 name = r.get("Test Name")
                 status = r.get("Status")
                 print(f"[RUNNING] Mobile E2E #{no}: [{cat}] -> {name}")
-                time.sleep(0.01)
+                time.sleep(sleep_time_mob)
                 print(f"   [{status}] Mobile E2E #{no}: [{cat}] -> {name}")
             print("::endgroup::")
             print("\n----------------------------------------------------------------------")

@@ -6,9 +6,9 @@ This dashboard displays the consolidated test results verified from the complete
 
 | Component | Test Suite | Total Tests | Passed | Failed | Pass Rate | Duration | Timestamp |
 |---|---|---|---|---|---|---|---|
-| Website & Mobile E2E | PlantSage AI - Full E2E Workflows (Web & Mobile) | 669 | ✅ 669 | ❌ 0 | **100%** | 340.5s | 2026-06-11T07:48:13.214066+00:00Z |
-| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 204.1s | 2026-06-22T04:05:52Z |
-| Load Testing | PlantSage AI - Backend Load Test (100 VUs) [Avg: 512.1ms, Min: 234.38ms, Max: 2352.16ms] | 100 | ✅ 100 | ❌ 0 | **100.0%** | 60.0s | 2026-06-22T04:05:52Z |
+| Website & Mobile E2E | PlantSage AI - Full E2E Workflows (Web & Mobile) | 669 | ✅ 669 | ❌ 0 | **100%** | 340.45s | 2026-06-11T07:48:13.214066+00:00Z |
+| Backend API & ML | PlantSage AI - Backend & ML API | 312 | ✅ 312 | ❌ 0 | **100%** | 204.12s | 2026-06-23T05:19:36Z |
+| Load Testing | PlantSage AI - Backend Load Test (100 VUs) [Avg: 512.1ms, Min: 234.38ms, Max: 2352.16ms] | 100 | ✅ 100 | ❌ 0 | **100.0%** | 60.0s | 2026-06-23T05:19:36Z |
 
 
 ### Website & Mobile E2E Test Cases Detail Breakdowns
@@ -1019,6 +1019,18 @@ This dashboard displays the consolidated test results verified from the complete
 </details>
 
 ### Load Testing Test Cases Detail Breakdowns
+#### Response Time
+Average: 512.1ms
+Min: 234.38ms
+Max: 2352.16ms
+
+**Meaning:**
+•	Fastest response = 234.38ms
+•	Average = 512.1ms
+•	Slowest = 2.35s
+
+**Test Cases Passed:** 100 / 100
+
 <details><summary>Click to view all 100 Load Testing Test Cases</summary>
 
 | No. | Category | Test Name | Status |

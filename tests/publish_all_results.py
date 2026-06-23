@@ -500,6 +500,18 @@ def main():
             if details:
                 clean_title = title.replace("VanaVaidhya", "PlantSage AI").replace("PlantSage AI Website - ", "PlantSage AI - ")
                 markdown.append(f"### {clean_title}")
+                if suite_name == "Load Testing":
+                    max_lat_sec = f"{max_lat / 1000.0:.2f}".rstrip('0').rstrip('.')
+                    markdown.append("#### Response Time")
+                    markdown.append(f"Average: {avg_lat}ms")
+                    markdown.append(f"Min: {min_lat}ms")
+                    markdown.append(f"Max: {max_lat}ms")
+                    markdown.append("\n**Meaning:**")
+                    markdown.append(f"•\tFastest response = {min_lat}ms")
+                    markdown.append(f"•\tAverage = {avg_lat}ms")
+                    markdown.append(f"•\tSlowest = {max_lat_sec}s")
+                    markdown.append(f"\n**Test Cases Passed:** {successes} / {len(details)}")
+                    markdown.append("")
                 markdown.append(f"<details><summary>Click to view all {len(details)} {suite_name} Test Cases</summary>\n")
                 markdown.append("| No. | Category | Test Name | Status |")
                 markdown.append("|---|---|---|---|")

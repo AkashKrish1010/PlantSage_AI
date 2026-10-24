@@ -98,8 +98,8 @@ export default function BottomNav() {
 
   if (keyboardVisible) return null;
 
-  // Float the pill 12px above the home indicator (or 20px on flat-bottom devices)
-  const pillBottom = bottom > 0 ? bottom + 12 : 20;
+  // Ensure minimum bottom offset to prevent overlap on flat-bottom Android devices
+  const pillBottom = Math.max(bottom > 0 ? bottom + 12 : 20, 20);
 
   return (
     <View
